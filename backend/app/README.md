@@ -1,15 +1,5 @@
-# Backend API - User Management
 
-FastAPI-based backend service for user management with PostgreSQL database.
-
-## 🚀 Quick Start
-
-### Prerequisites
-- Python 3.8+
-- PostgreSQL
-- Environment variables configured
-
-### Installation
+### Установка
 ```bash
 
 Настройка переменных для базы данных postgres:
