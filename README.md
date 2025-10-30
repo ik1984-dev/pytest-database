@@ -26,18 +26,20 @@ cd pytest-database
 
 ```
 
-# Установка
-## Бекенд:
+## Установка
+### Бекенд:
 ```bash
 cd backend
 pip install -r requirements.txt
 cd ..
 ```
 
-## Фронтенд:
+### Фронтенд:
+```bash
 cd frontend
 npm install
 cd ..
+```
 
 # Запуск проекта
 ## Бекенд:
@@ -46,14 +48,14 @@ cd backend
 python backend/run.py
 ```
 
-## Фронтенд:
+### Фронтенд:
 ```bash
 cd frontend
 npm start
 ```
 
 
-# Запуск тестов
+## Запуск тестов
 ```bash
 cd backend
 python backend/run.py
