@@ -25,18 +25,6 @@ git clone https://github.com/ik1984-dev/pytest-database
 cd pytest-database
 
 ```
-## Структура проекта:
-pytest-database/
-├── backend/          # FastAPI приложение
-│   ├── app/         # Основной код приложения
-│   ├── tests/       # Pytest тесты
-│   └── requirements.txt
-├── frontend/         # React приложение
-│   ├── src/         # Исходный код
-│   ├── public/      # Статические файлы
-│   └── package.json
-└── README.md
-
 
 # Установка
 ## Бекенд:
