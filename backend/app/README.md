@@ -11,19 +11,8 @@ FastAPI-based backend service for user management with PostgreSQL database.
 
 ### Installation
 ```bash
-# Clone repository
-git clone <repository-url>
-cd backend
 
-# Install dependencies
-pip install -r requirements.txt
-
-# Set up environment variables
-cp .env.example .env
-# Edit .env with your database credentials
-
-
-
+Настройка переменных для базы данных postgres:
 DB_USER=ваш_username
 DB_PASSWORD=ваш_пароль
 DB_HOST=localhost
@@ -31,9 +20,9 @@ DB_PORT=5432
 DB_NAME=ваша_база_данных
 
 
+Чтобы запустить бекенд, необходимо запустить run.py:
+python run.py (Сначала нужно убедиться, что скачаны зависимости requirements: pip install requirements.txt)
 
-uvicorn app.main:app --reload
-API будет доступно по адресу: http://localhost:8000
 
 Структура проекта:
 backend/
@@ -45,23 +34,34 @@ backend/
 │   └── crud.py              # Операции с БД
 └── .env
 
+Main.py
+Модуль создает FastAPI приложение для управления пользователями с CRUD операциями через REST API.
+    POST /users/ - создание пользователя с проверкой уникальности email
+    GET /users/ - получение списка пользователей с пагинацией
+    GET /users/{id} - получение пользователя по ID
+    Настроены CORS для фронтенда и автоматическое создание таблиц БД
 
 Модели (models.py)
-
-    User - модель пользователя с полями: id, name, email, bio
+Модуль определяет модель SQLAlchemy для таблицы пользователей в БД.
+    Таблица users с полями: id, name, email, bio
+    Email уникальный и индексированный
+    Поддержка текстового поля для био
 
 Схемы (schemas.py)
-
-    UserCreate - для создания пользователя
-
-    User - для ответов API
+Модуль определяет Pydantic-схемы для пользователей: описывает структуру данных для создания и возврата пользователей.
+    UserCreate - схема для создания пользователя (name, email, bio)
+    User - схема для возврата данных + id пользователя
+    Поддержка валидации email и совместимость с SQLAlchemy моделями
 
 CRUD операции (crud.py)
+Модуль работает с пользователями в БД: предоставляет функции для поиска по email/id, создания новых пользователей и получения списка.
+    create_user - создает пользователя, проверяя что email не занят
+    get_user_by_email - поиск по email (используется при создании)
+    get_user_by_id - поиск по ID
+    get_users - получение списка с пагинацией
 
-    create_user() - создание пользователя с проверкой email
-
-    get_user_by_id() - поиск пользователя по ID
-
-    get_users() - получение списка пользователей
-
-
+база данных (database.py)
+Модуль настраивает подключение к PostgreSQL БД и создает сессии для работы с базой.
+    Подключение к PostgreSQL через переменные окружения
+    Создание движка и фабрики сессий (SessionLocal)
+    Функция get_db() для dependency injection в FastAPI
