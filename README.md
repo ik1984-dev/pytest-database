@@ -1,3 +1,4 @@
+#Проект тестирование базы данных на основе postgres, react, pytest, fastapi
 1. Клонировать репозиторий
 git clone https://github.com/ik1984-dev/pytest-database
 cd pytest-database
