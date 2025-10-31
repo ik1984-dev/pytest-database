@@ -94,23 +94,38 @@ JavaScript/React (фронтенд):
 
 
 Тестирование:
+
 •	Jest (через React Scripts) - фреймворк для тестирования
 
 •	React Testing Library - утилиты для тестирования React компонентов
 
 2. Используемые протоколы API:
+
 REST API (основной)
+
 •	HTTP/1.1 - протокол передачи данных
+
 •	RESTful архитектура:
+
 o	POST /users/ - создание пользователя
+
 o	GET /users/ - получение списка пользователей
+
 o	GET /users/{id} - получение конкретного пользователя
+
+
 Дополнительные протоколы:
+
 •	CORS - межсайтовые запросы между localhost:3000 и бекендом
+
 •	JSON - формат данных для API коммуникации
+
 •	PostgreSQL Protocol - общение с базой данных
+
 Сетевые протоколы:
+
 •	TCP/IP - базовый транспортный протокол
+
 •	HTTP - протокол прикладного уровня для API
 
 ORM - Object-Relational Mapping (Объектно-реляционное отображение) - технология, которая позволяет работать с базой данных используя объекты programming языка вместо SQL запросов.
@@ -121,13 +136,18 @@ DOM - Document Object Model (Объектная модель документа)
 
 
 Взаимодействие протоколов и библиотек:
+
 Frontend (React) → Backend (FastAPI)
+
 React Component → Axios → HTTP/1.1 → FastAPI (Uvicorn)
 
+
 Backend (FastAPI) → Database (PostgreSQL)
+
 FastAPI → SQLAlchemy → psycopg2 → PostgreSQL Protocol → PostgreSQL Server
 
 Детальная цепочка:
+
 1.	Фронтенд запрос:
 UserForm → Axios (HTTP клиент) → HTTP запрос → FastAPI эндпоинт
 
