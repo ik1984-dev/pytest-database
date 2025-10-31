@@ -65,6 +65,7 @@ or
 python.exe -m pytest .\tests\ -v -s
 ```
 
+## Использованные библиотеки
 
 Python (бекенд):
 
